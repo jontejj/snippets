@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-wq-1
+spec:
+  completions: 8
+  parallelism: 2
+  template:
+    metadata:
+      name: job-wq-1
+    spec:
+      containers:
+      - name: c
+        image: jontejj/job-wq-1
+        env:
+        - name: REDIS_HOST
+          value: redis:6379
+        - name: QUEUE
+          value: job1
+      restartPolicy: OnFailure
