@@ -1,6 +1,5 @@
-# Specify REDIS_HOST and QUEUE when running
+# Specify REDIS_HOST/REDIS_PORT and QUEUE when running
 FROM alpine:latest
-#FROM python:3
 RUN apk --update add redis
 COPY ./worker.py /worker.py
 COPY ./wait_for_job.sh /wait_for_job.sh
@@ -8,4 +7,3 @@ COPY ./wait_for_job.sh /wait_for_job.sh
 RUN chmod +x /wait_for_job.sh
 
 CMD ["/wait_for_job.sh"]
-#CMD sh

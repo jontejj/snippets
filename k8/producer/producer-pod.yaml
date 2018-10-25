@@ -1,17 +1,17 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: job-wq-1
+  name: job-producer-1
 spec:
   completions: 10
   parallelism: 10
   template:
     metadata:
-      name: job-wq-1
+      name: job-producer-1
     spec:
       containers:
-      - name: c
-        image: job-wq-1:2
+      - name: p
+        image: job-producer-1:2
         env:
         - name: REDIS_HOST
           value: redis

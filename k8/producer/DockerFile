@@ -1,0 +1,9 @@
+# Specify REDIS_HOST and QUEUE when running
+FROM alpine:latest
+#FROM python:3
+RUN apk --update add redis
+COPY ./produce.sh /produce.sh
+
+RUN chmod +x /produce.sh
+
+CMD ["/produce.sh"]
