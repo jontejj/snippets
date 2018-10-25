@@ -8,9 +8,9 @@ kubectl create -f redis-pod.yaml
 #kubectl create -f rabbitmq-controller.yaml
 
 cd worker
-docker build -t job-wq-1 . -f DockerFile
-docker tag job-wq-1 jontejj/job-wq-1
-docker push jontejj/job-wq-1
+docker build -t job-wq-2 . -f DockerFile
+docker tag job-wq-2 jontejj/job-wq-2
+docker push jontejj/job-wq-2
 kubectl create -f ./job.yaml
 
 
